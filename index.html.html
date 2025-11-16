@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sanskar Singh | Physiotherapy Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-6IcGQfE8xQ/1x1mRr4w1zIVzQta42FZ6iT6c9awcT9rQ7Pq0U4E3y6q1z5dF9eG7T9iNqWgUQ4RZ2l2lqYp3PQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --bg-alt: #ffffff;
+      --text-color: #12263f;
+      --muted-text: #6c7a89;
+      --primary-color: #4ea8de;
+      --accent-color: #ffb703;
+      --card-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --transition-fast: 0.3s ease;
+    }
+
+    body.dark {
+      --bg-color: #050816;
+      --bg-alt: #0b1120;
+      --text-color: #e5e7eb;
+      --muted-text: #9ca3af;
+      --card-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #e0f4ff 0, #f4f7fb 40%, #e0ecff 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    body.dark {
+      background: radial-gradient(circle at top, #111827 0, #020617 40%, #020617 100%);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 8%;
+      backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.72);
+      color: #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-logo span {
+      font-size: 1.2rem;
+    }
+
+    .nav-logo i {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+      color: #e5e7eb;
+      opacity: 0.8;
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: var(--transition-fast);
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+      color: #f9fafb;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7);
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #e5e7eb;
+      transition: var(--transition-fast);
+      font-size: 0.9rem;
+    }
+
+    .icon-btn:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .theme-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .theme-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #e5e7eb;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .theme-dot:hover {
+      transform: translateY(-1px) scale(1.05);
+      box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.4);
+    }
+
+    .theme-dot.blue { background: #4ea8de; }
+    .theme-dot.green { background: #22c55e; }
+    .theme-dot.purple { background: #a855f7; }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        right: 0;
+        left: 0;
+        background: rgba(15, 23, 42, 0.96);
+        backdrop-filter: blur(18px);
+        flex-direction: column;
+        padding: 16px 0 20px;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.35s ease;
+      }
+      .nav-links.show {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-actions {
+        display: none;
+      }
+      .nav-toggle {
+        display: inline-flex;
+      }
+    }
+
+    /* Sections */
+    main {
+      padding-top: 80px;
+    }
+
+    section {
+      padding: 70px 8%;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted-text);
+      margin-bottom: 28px;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: 40px;
+      padding-bottom: 90px;
+    }
+
+    .hero-left {
+      padding-right: 10px;
+    }
+
+    .hero-greet {
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+    }
+
+    .hero-name {
+      font-size: 2.7rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-role {
+      font-size: 1.1rem;
+      color: var(--muted-text);
+      margin-bottom: 18px;
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      color: var(--muted-text);
+      max-width: 480px;
+      margin-bottom: 24px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .btn-ghost {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: transparent;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(148, 163, 184, 0.2);
+      border-color: var(--primary-color);
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--muted-text);
+    }
+
+    .metric-card {
+      padding: 10px 16px;
+      background: rgba(15, 23, 42, 0.02);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+    }
+
+    body.dark .metric-card {
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      background: radial-gradient(circle at top, rgba(79, 209, 253, 0.35), rgba(15, 23, 42, 0.95));
+      border-radius: 26px;
+      padding: 20px 20px 26px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      color: #e5e7eb;
+    }
+
+    .hero-avatar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .hero-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      border: 3px solid rgba(248, 250, 252, 0.9);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-avatar-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 2px;
+    }
+
+    .hero-avatar-info span {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      font-size: 0.75rem;
+      color: #eab308;
+      margin-bottom: 10px;
+    }
+
+    .hero-lottie {
+      margin-top: 6px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-svg {
+      width: 100%;
+      max-width: 360px;
+      background: var(--bg-alt);
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .hero-svg h4 {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .spine-svg {
+      width: 100%;
+      height: 120px;
+    }
+
+    .spine-path {
+      fill: none;
+      stroke: var(--primary-color);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 260;
+      stroke-dashoffset: 260;
+      animation: drawSpine 3s ease forwards infinite;
+    }
+
+    @keyframes drawSpine {
+      0% { stroke-dashoffset: 260; opacity: 0; }
+      40% { opacity: 1; }
+      70% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @media (max-width: 900px) {
+      #home {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .hero-left {
+        order: 1;
+      }
+      .hero-right {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-name {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* About */
+    #about {
+      background: radial-gradient(circle at top left, rgba(79, 209, 253, 0.16), transparent 55%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 26px 26px 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .about-text p {
+      font-size: 0.98rem;
+      color: var(--muted-text);
+      margin-bottom: 18px;
+    }
+
+    .about-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.8rem;
+      color: var(--muted-text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill i {
+      color: var(--primary-color);
+      font-size: 0.8rem;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .about-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.88);
+      color: #e5e7eb;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 18px 18px 16px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card h4 {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .skill-card span {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .skill-bar {
+      margin-top: 10px;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.3);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary-color), #1d4ed8);
+      transition: width 1.2s ease;
+    }
+
+    .skill-icon {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      opacity: 0.2;
+    }
+
+    /* Expertise */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .exp-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.3);
+    }
+
+    .exp-img {
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .exp-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .exp-card:hover .exp-img img {
+      transform: scale(1.07);
+    }
+
+    .exp-body {
+      padding: 14px 16px 16px;
+    }
+
+    .exp-body h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .exp-body p {
+      font-size: 0.86rem;
+      color: var(--muted-text);
+    }
+
+    /* Education */
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+      padding-left: 18px;
+      border-left: 2px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 24px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -11px;
+      top: 2px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+    }
+
+    .timeline-item h4 {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item span {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .timeline-item p {
+      font-size: 0.85rem;
+      color: var(--muted-text);
+      margin-top: 4px;
+    }
+
+    /* Experience */
+    .exp-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .exp-box {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 18px 18px 16px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .exp-box h4 {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .exp-box span {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .exp-box p {
+      font-size: 0.86rem;
+      color: var(--muted-text);
+      margin-top: 6px;
+    }
+
+    /* Achievements */
+    .achievements-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .ach-card {
+      background: linear-gradient(135deg, rgba(250, 250, 250, 0.98), rgba(254, 249, 195, 0.98));
+      border-radius: var(--radius-md);
+      padding: 18px 18px 16px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    body.dark .ach-card {
+      background: radial-gradient(circle at top left, #0f172a, #111827);
+    }
+
+    .ach-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(251, 191, 36, 0.16);
+      color: #fbbf24;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .ach-card h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .ach-card p {
+      font-size: 0.86rem;
+      color: var(--muted-text);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.7), transparent);
+      opacity: 0;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 12px;
+      color: #f9fafb;
+      font-size: 0.85rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #020617;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 24px;
+      font-size: 1.6rem;
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    /* Contact */
+    #contact {
+      background: radial-gradient(circle at bottom right, rgba(74, 222, 128, 0.14), transparent 60%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 22px 22px 20px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .contact-card h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted-text);
+    }
+
+    .contact-info-row div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-info-row i {
+      color: var(--primary-color);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .input-field, .text-area {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .input-field::placeholder,
+    .text-area::placeholder {
+      color: var(--muted-text);
+    }
+
+    .input-field:focus,
+    .text-area:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+      background: rgba(15, 23, 42, 0.01);
+    }
+
+    .text-area {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    /* Floating Resume Button */
+    .floating-resume {
+      position: fixed;
+      right: 20px;
+      bottom: 22px;
+      z-index: 1100;
+    }
+
+    .floating-resume a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: linear-gradient(145deg, var(--primary-color), #1d4ed8);
+      color: #f9fafb;
+      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.7);
+      font-size: 1.3rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    .floating-resume a:hover {
+      transform: translateY(-3px) scale(1.03);
+      filter: brightness(1.08);
+      box-shadow: 0 20px 45px rgba(37, 99, 235, 0.85);
+    }
+
+    /* Floating Chatbot */
+    .chatbot-toggle {
+      position: fixed;
+      left: 20px;
+      bottom: 22px;
+      width: 50px;
+      height: 50px;
+      border-radius: 999px;
+      background: var(--bg-alt);
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1100;
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      transition: var(--transition-fast);
+    }
+
+    .chatbot-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.7);
+    }
+
+    .chatbot-window {
+      position: fixed;
+      left: 20px;
+      bottom: 84px;
+      width: 290px;
+      max-width: calc(100% - 40px);
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--card-shadow);
+      padding: 14px 14px 10px;
+      z-index: 1100;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chatbot-window.show {
+      display: flex;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .chat-header h4 {
+      font-size: 0.95rem;
+    }
+
+    .chat-header span {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .chat-body {
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .chat-msg {
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .chat-msg.bot {
+      text-align: left;
+      color: var(--muted-text);
+    }
+
+    .chat-msg.user {
+      text-align: right;
+      color: var(--primary-color);
+    }
+
+    .chat-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .chat-chip {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.16);
+      font-size: 0.78rem;
+      cursor: pointer;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted-text);
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chat-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 6px 10px;
+      font-size: 0.86rem;
+      background: transparent;
+      color: var(--text-color);
+      outline: none;
+    }
+
+    .chat-send {
+      border-radius: 999px;
+      border: none;
+      background: var(--primary-color);
+      color: #f9fafb;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 18px 8% 24px;
+      font-size: 0.82rem;
+      color: var(--muted-text);
+      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.03);
+    }
+
+    body.dark footer {
+      background: rgba(15, 23, 42, 0.9);
+      border-top-color: rgba(30, 64, 175, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <i class="fa-solid fa-heart-pulse"></i>
+      <span>Sanskar Singh</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Blue Professional Fashion Designer Resume.pdf" download class="btn-primary"><i class="fa-solid fa-download"></i>Resume</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-regular fa-moon"></i>
+      </button>
+      <div class="theme-dots">
+        <div class="theme-dot blue" data-color="#4ea8de"></div>
+        <div class="theme-dot green" data-color="#22c55e"></div>
+        <div class="theme-dot purple" data-color="#a855f7"></div>
+      </div>
+    </div>
+
+    <button class="icon-btn nav-toggle" id="navToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section id="home">
+      <div class="hero-left reveal">
+        <p class="hero-greet">Hello, I am</p>
+        <h1 class="hero-name">Sanskar Singh</h1>
+        <p class="hero-role">Physiotherapy Student | Future Rehab & Mobility Specialist</p>
+        <p class="hero-tagline">
+          I am focused on helping people recover from injuries, improve movement, and live pain-free through evidence-based physiotherapy care.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="document.querySelector('#experience').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-briefcase"></i>
+            View Journey
+          </button>
+          <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-regular fa-paper-plane"></i>
+            Contact Me
+          </button>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <i class="fa-solid fa-stethoscope"></i>
+            <span>Active BPT Student at LPU</span>
+          </div>
+          <div class="metric-card">
+            <i class="fa-solid fa-users-line"></i>
+            <span>Passionate about patient care</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal">
+        <div class="hero-card">
+          <div class="hero-avatar-wrap">
+            <div class="hero-avatar">
+              <img src="WhatsApp Image 2025-11-15 at 6.53.12 PM.jpeg" alt="Physiotherapist profile" />
+            </div>
+            <div class="hero-avatar-info">
+              <h3>Physio Profile</h3>
+              <span>Bachelor of Physiotherapy (BPT)</span>
+            </div>
+          </div>
+
+          <div class="hero-badge">
+            <i class="fa-solid fa-circle-check"></i>
+            Building strong clinical foundations
+          </div>
+
+          <div class="hero-lottie">
+            <lottie-player
+              src="https://assets7.lottiefiles.com/packages/lf20_yr6zz3wv.json"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 170px;"
+              loop
+              autoplay>
+            </lottie-player>
+          </div>
+        </div>
+
+        <div class="hero-svg reveal">
+          <h4>Movement Matters</h4>
+          <svg class="spine-svg" viewBox="0 0 200 120">
+            <path
+              class="spine-path"
+              d="M100 10
+                 C 80 20, 120 30, 100 40
+                 C 80 50, 120 60, 100 70
+                 C 80 80, 120 90, 100 110" />
+          </svg>
+          <p style="font-size:0.8rem; color:var(--muted-text); margin-top:4px;">
+            A healthy spine keeps life in motion — my goal is to support strong, flexible, and pain-free movement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="reveal">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        A motivated first-year physiotherapy student learning how science, movement, and empathy come together to heal people.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am a Bachelor of Physiotherapy (BPT) student at Lovely Professional University, building a strong base in human anatomy,  and therapeutic exercise.
+            I enjoy understanding how the body moves and how targeted therapy can restore strength, balance, and function.
+          </p>
+          <p>
+            My aim is to become a skilled physiotherapist who listens carefully, plans smartly, and supports each patient through a safe and confident recovery journey.
+          </p>
+          <div class="about-pill-row">
+            <div class="pill">
+              <i class="fa-solid fa-heart"></i>
+              Compassionate Care
+            </div>
+            <div class="pill">
+              <i class="fa-solid fa-brain"></i>
+              Strong Clinical Thinking
+            </div>
+            <div class="pill">
+              <i class="fa-solid fa-dumbbell"></i>
+              Love for Movement & Fitness
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image-wrap">
+          <div class="about-image-main">
+            <img src="WhatsApp Image 2025-11-15 at 6.53.12 PM.jpeg" alt="Physiotherapy session" />
+          </div>
+          <div class="about-tag">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            Learning to heal with every session.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="reveal">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">
+        A mix of clinical knowledge, communication, and problem-solving skills, growing stronger every day.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fa-solid fa-user-nurse skill-icon"></i>
+          <h4>Patient Management</h4>
+          <span>Understanding needs, comfort, and safety of patients.</span>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-level="78"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-comments skill-icon"></i>
+          <h4>Therapeutic Communication</h4>
+          <span>Explaining exercises and motivating patients clearly.</span>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-level="82"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-magnifying-glass-chart skill-icon"></i>
+          <h4>Clinical Assessment</h4>
+          <span>Basic range-of-motion and posture assessment skills.</span>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-level="70"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-list-check skill-icon"></i>
+          <h4>Rehabilitation Planning</h4>
+          <span>Designing simple, safe, and progressive exercise plans.</span>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-level="68"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-person-running skill-icon"></i>
+          <h4>Exercise Therapy</h4>
+          <span>Stretching, strengthening, and mobility-based routines.</span>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-level="75"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-lightbulb skill-icon"></i>
+          <h4>Critical Thinking</h4>
+          <span>Connecting symptoms, causes, and suitable techniques.</span>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-level="72"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="reveal">
+      <h2 class="section-title">Areas of Expertise</h2>
+      <p class="section-subtitle">
+        Early skills and interests that I am shaping into strong professional expertise.
+      </p>
+
+      <div class="expertise-grid">
+        <div class="exp-card">
+          <div class="exp-img">
+            <img src="https://images.pexels.com/photos/3820430/pexels-photo-3820430.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sports injury rehab" />
+          </div>
+          <div class="exp-body">
+            <h4>Sports Injury Rehabilitation</h4>
+            <p>Understanding common sports injuries and basic recovery exercises to help athletes return safely to activity.</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-img">
+            <img src="https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Posture correction" />
+          </div>
+          <div class="exp-body">
+            <h4>Posture & Spine Care</h4>
+            <p>Learning how posture affects pain and mobility, and how simple corrections can protect the spine.</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-img">
+            <img src="https://images.pexels.com/photos/4047042/pexels-photo-4047042.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pain management therapy" />
+          </div>
+          <div class="exp-body">
+            <h4>Pain Management Techniques</h4>
+            <p>Using gentle exercises, stretching, and movement strategies to reduce discomfort and stiffness.</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-img">
+            <img src="https://images.pexels.com/photos/4506107/pexels-photo-4506107.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mobility training" />
+          </div>
+          <div class="exp-body">
+            <h4>Mobility & Balance Training</h4>
+            <p>Helping individuals improve balance, stability, and confidence in daily movements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="reveal">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">
+        A strong academic base in medical science and physiotherapy.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h4>Bachelor of Physiotherapy (BPT)</h4>
+          <span>2025 – Present · Lovely Professional University</span>
+          <p>Currently pursuing BPT with focus on anatomy, physiology and clinical exposure.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h4>Senior Secondary – Medical Science</h4>
+          <span>2022 – 2025 · Rawal Convent School</span>
+          <p>Completed higher secondary education with specialization in Medical Science, building a strong biology foundation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="reveal">
+      <h2 class="section-title">Training & Experience</h2>
+      <p class="section-subtitle">
+        Early exposure, labs, and academic practice as a first-year physiotherapy student.
+      </p>
+
+      <div class="exp-list">
+        <div class="exp-box">
+          <h4>Physiotherapy Student Training</h4>
+          <span>2025 – Present · Lovely Professional University</span>
+          <p>Observing and assisting in supervised practical sessions and learning step-by-step therapeutic techniques.</p>
+        </div>
+
+        <div class="exp-box">
+          <h4>Clinical Lab Practice</h4>
+          <span>On-Campus Labs</span>
+          <p>Practicing basic assessments, stretching, and mobility exercises in a safe, controlled learning environment.</p>
+        </div>
+
+        <div class="exp-box">
+          <h4>Case Studies & Simulations</h4>
+          <span>Academic Projects</span>
+          <p>Working on case-based discussions, creating simple rehab plans, and presenting patient scenarios with peers.</p>
+        </div>
+
+        <div class="exp-box">
+          <h4>Continuous Skill Development</h4>
+          <span>Ongoing</span>
+          <p>Actively participating in workshops, seminars, and health awareness sessions related to physiotherapy and fitness.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="reveal">
+      <h2 class="section-title">Achievements</h2>
+      <p class="section-subtitle">
+        Small milestones that motivate me to grow into a better physiotherapist.
+      </p>
+
+      <div class="achievements-row">
+        <div class="ach-card">
+          <div class="ach-icon">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <div>
+            <h4>Active Participant – Physiotherapy Workshop</h4>
+            <p>Attended a sports injury and taping techniques workshop to understand on-field rehab support.</p>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-icon">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <div>
+            <h4>Health Awareness Volunteer</h4>
+            <p>Contributed to campus health awareness activities, promoting posture care and basic fitness guidance.</p>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-icon">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <div>
+            <h4>Strong Practical Performance</h4>
+            <p>Performed well in anatomy and exercise therapy practicals with consistent focus on accuracy and technique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="reveal">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">
+        Moments from physiotherapy-related practice, learning, and movement.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images1.jpg" alt="Physio exercise" />
+          <div class="gallery-overlay">Strength and flexibility training.</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stretching session" />
+          <div class="gallery-overlay">Guided stretching for tight muscles.</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="image2.jpg" alt="Massage therapy" />
+          <div class="gallery-overlay">Manual therapy and relaxation.</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="image3.jpg" alt="Sports rehab" />
+          <div class="gallery-overlay">Rehabilitation after sports injury.</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="image4.webp" alt="Joint therapy" />
+          <div class="gallery-overlay">Care for joint pain and stiffness.</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="image5.png" alt="Back care" />
+          <div class="gallery-overlay">Posture and back care guidance.</div>
+        </div>
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></span>
+        <div class="lightbox-content">
+          <img src="" alt="Preview" id="lightboxImg" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Open to learning, internships, guidance, and opportunities in physiotherapy and healthcare.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4>Contact Details</h4>
+          <div class="contact-info-row">
+            <div>
+              <i class="fa-solid fa-user"></i>
+              <span>Sanskar Singh</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 99906 33553</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-envelope"></i>
+              <span>sanskarsingh9990@gmail.com</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Lovely Professional University, Punjab, India</span>
+            </div>
+          </div>
+
+          <h4 style="margin-top:16px;">Social Profiles</h4>
+          <div class="contact-info-row">
+            <div>
+              <i class="fa-brands fa-linkedin"></i>
+              <span>linkedin.com/in/sanskar-singh</span>
+            </div>
+            <div>
+              <i class="fa-brands fa-instagram"></i>
+              <span>@_thephysiopursuit_</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h4>Send a Message</h4>
+          <form class="contact-form" id="contactForm">
+            <input type="text" class="input-field" placeholder="Your Name" required />
+            <input type="email" class="input-field" placeholder="Your Email" required />
+            <input type="text" class="input-field" placeholder="Subject" />
+            <textarea class="text-area" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary btn-submit">
+              <i class="fa-regular fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Resume Button -->
+  <div class="floating-resume">
+    <a href="Blue Professional Fashion Designer Resume.pdf" download title="Download Resume">
+      <i class="fa-solid fa-file-arrow-down"></i>
+    </a>
+  </div>
+
+  <!-- Chatbot -->
+  <div class="chatbot-toggle" id="chatToggle" title="Physio Assistant Bot">
+    <i class="fa-solid fa-message"></i>
+  </div>
+
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chat-header">
+      <div>
+        <h4>Physio Assistant Bot</h4>
+        <span>Ask anything quickly</span>
+      </div>
+      <i class="fa-solid fa-xmark" style="cursor:pointer;" id="chatClose"></i>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg bot">
+        👋 Hi! I am here to help you connect with Sanskar. Choose a quick option or type your question.
+      </div>
+    </div>
+    <div class="chat-quick">
+      <div class="chat-chip">Book an appointment</div>
+      <div class="chat-chip">Ask about services</div>
+      <div class="chat-chip">Get contact details</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." />
+      <button class="chat-send" id="chatSend">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Sanskar Singh · Physiotherapy Portfolio · Designed for learning and growth.
+  </footer>
+
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+      });
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    function applySavedTheme() {
+      const savedTheme = localStorage.getItem("physio-theme");
+      if (savedTheme === "dark") {
+        body.classList.add("dark");
+      }
+    }
+    applySavedTheme();
+
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const isDark = body.classList.contains("dark");
+      localStorage.setItem("physio-theme", isDark ? "dark" : "light");
+      themeToggle.innerHTML = isDark
+        ? '<i class="fa-regular fa-sun"></i>'
+        : '<i class="fa-regular fa-moon"></i>';
+    });
+
+    // Update icon on load
+    if (body.classList.contains("dark")) {
+      themeToggle.innerHTML = '<i class="fa-regular fa-sun"></i>';
+    }
+
+    // Theme color switcher
+    document.querySelectorAll(".theme-dot").forEach(dot => {
+      dot.addEventListener("click", () => {
+        const color = dot.getAttribute("data-color");
+        document.documentElement.style.setProperty("--primary-color", color);
+      });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Skill bars animate on reveal
+    const skillBars = document.querySelectorAll(".skill-bar-fill");
+    const skillsObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const level = entry.target.getAttribute("data-level");
+            entry.target.style.width = level + "%";
+            skillsObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    skillBars.forEach(bar => skillsObserver.observe(bar));
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    document.querySelectorAll(".gallery-item img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("show");
+      });
+    });
+
+    lightboxClose.addEventListener("click", () => {
+      lightbox.classList.remove("show");
+    });
+
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("show");
+      }
+    });
+
+    // Contact form fake submit
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Thank you! Your message has been received.");
+      contactForm.reset();
+    });
+
+    // Chatbot
+    const chatToggle = document.getElementById("chatToggle");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatClose = document.getElementById("chatClose");
+    const chatBody = document.getElementById("chatBody");
+    const chatInput = document.getElementById("chatInput");
+    const chatSend = document.getElementById("chatSend");
+
+    chatToggle.addEventListener("click", () => {
+      chatWindow.classList.toggle("show");
+    });
+
+    chatClose.addEventListener("click", () => {
+      chatWindow.classList.remove("show");
+    });
+
+    function addChatMessage(text, type = "bot") {
+      const div = document.createElement("div");
+      div.classList.add("chat-msg", type);
+      div.textContent = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    document.querySelectorAll(".chat-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const text = chip.textContent.trim();
+        addChatMessage(text, "user");
+        setTimeout(() => {
+          if (text.includes("Book")) {
+            addChatMessage("You can book an appointment by contacting me on phone or email. I will respond with available slots.", "bot");
+          } else if (text.includes("services")) {
+            addChatMessage("I can help with basic mobility exercises, posture guidance, and beginner-level rehab support as a student.", "bot");
+          } else if (text.includes("contact")) {
+            addChatMessage("You can reach me at +91 99906 33553 or sanskarsingh9990@gmail.com.", "bot");
+          }
+        }, 500);
+      });
+    });
+
+    chatSend.addEventListener("click", () => {
+      const value = chatInput.value.trim();
+      if (!value) return;
+      addChatMessage(value, "user");
+      chatInput.value = "";
+      setTimeout(() => {
+        addChatMessage("Thank you for your message. I will get back to you as soon as possible.", "bot");
+      }, 600);
+    });
+
+    chatInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        chatSend.click();
+      }
+    });
+  </script>
+</body>
+</html>
